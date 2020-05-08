@@ -4,9 +4,14 @@
 [ext_resource path="res://addons/key_shortcut_creator/KeyGrabberButton.gd" type="Script" id=2]
 
 [node name="KeyShortcutCreator" type="WindowDialog"]
-visible = true
-margin_right = 200.0
-margin_bottom = 100.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -50.0
+margin_right = 125.0
+margin_bottom = 50.0
 rect_min_size = Vector2( 250, 100 )
 focus_mode = 1
 window_title = "Key Shortcut Creator"
@@ -29,10 +34,10 @@ __meta__ = {
 
 [node name="InputKey" type="Button" parent="VBoxContainer"]
 margin_right = 230.0
-margin_bottom = 106.0
+margin_bottom = 56.0
 focus_next = NodePath("../CreateButton")
 size_flags_vertical = 3
-text = "Keys"
+text = "Press a key..."
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -40,16 +45,33 @@ __meta__ = {
 empty_font_color = Color( 0.74902, 0.74902, 0.74902, 1 )
 
 [node name="CreateButton" type="Button" parent="VBoxContainer"]
-margin_top = 110.0
+margin_top = 60.0
 margin_right = 230.0
-margin_bottom = 130.0
+margin_bottom = 80.0
 disabled = true
 text = "Create"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -200.0
+margin_right = 250.0
+margin_bottom = 200.0
+window_title = "Save Resource As..."
+resizable = true
+current_file = "new_shortcut.tres"
+current_path = "res://new_shortcut.tres"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="about_to_show" from="." to="." method="_on_about_to_show"]
 [connection signal="grabbed_event_cleared" from="VBoxContainer/InputKey" to="." method="_on_InputKey_grabbed_event_cleared"]
 [connection signal="grabbed_event_updated" from="VBoxContainer/InputKey" to="." method="_on_InputKey_grabbed_event_updated"]
-[connection signal="pressed" from="VBoxContainer/InputKey" to="." method="_on_InputKey_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreateButton" to="." method="_on_Create_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

@@ -8,25 +8,15 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Button",
-"class": "KeyGrabberButton",
-"language": "GDScript",
-"path": "res://addons/key_shortcut_creator/KeyGrabberButton.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"KeyGrabberButton": ""
+
 }
 
 [application]
 
 config/name="KeyShortcutCreator"
 config/icon="res://icon.png"
-
-[display]
-
-window/size/width=300
-window/size/height=200
 
 [editor_plugins]
 

@@ -1,8 +1,6 @@
 tool
 extends Button
 
-class_name KeyGrabberButton
-
 signal grabbed_event_updated(event)
 signal grabbed_event_cleared
 
